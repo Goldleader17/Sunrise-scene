@@ -1,0 +1,230 @@
+/* Body and Container Settings */
+/* Center shapes */
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* Set background and border color */
+.container {
+  min-width: 800px;
+  height: 800px;
+  border: 5px solid lightgray;
+  background: transparent;
+  position: relative;
+  margin: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* House Foreground */
+.house-foreground {
+  width: 800px;
+  height: 195px;
+  position: absolute;
+  top: 605px;
+  left: 0px;
+  background: linear-gradient(
+    to bottom,
+    #519f44 20%,
+    #a0cc44,
+    #b7d54a,
+    #88c741,
+    #c4db5f
+  );
+  
+  animation: house 10s ease-in infinite;
+}
+
+@keyframes house {
+  from {
+    filter: brightness(0);
+  }
+  20% {
+    filter: brightness(15%);
+  }
+
+  40% {
+    filter: brightness(5%);
+  }
+
+  to {
+    filter: brightness(100%);
+  }
+}
+
+/* House */
+.house {
+  width: 800px;
+  height: 721px;
+  border: 0px solid lightgray;
+  background: transparent;
+  position: relative;
+  top: 100px;
+  left: 100px;
+  transform: scale(0.3);
+}
+
+/* Wall */
+.wall {
+  width: 800px;
+  height: 500px;
+  background: #8b4513;
+  position: relative;
+}
+
+/* Roof */
+.roof {
+  width: 0;
+  height: 0;
+  border-left: 450px solid transparent;
+  border-right: 450px solid transparent;
+  border-bottom: 390px solid #2e190b;
+  position: relative;
+  right: 50px;
+}
+
+/* Door */
+.door {
+  width: 200px;
+  height: 500px;
+  background: #2e190b;
+  position: absolute;
+  top: 550px;
+  left: 300px;
+}
+
+/* Window */
+.window {
+  width: 150px;
+  height: 150px;
+  background: rgb(119, 126, 147);
+  position: absolute;
+  top: 170px;
+  left: 320px;
+  border-radius: 50%;
+}
+
+/* Door Knob */
+.door-knob {
+  width: 10px;
+  height: 10px;
+  background: #000;
+  position: absolute;
+  top: 630px;
+  left: 320px;
+  border-radius: 50%;
+}
+
+
+
+/* Sky Gradient */
+.sky {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 800px;
+  height: 1100px;
+  background: linear-gradient(
+    180deg,
+    #03071e 30%,
+    #1a3a50,
+    #006692,
+    #8a92a6,
+    #f5a67e,
+    #ffe3a4,
+    #fafbbd,
+    #f4f5d6,
+    #f8f8f0 70%
+  );
+
+  animation: sky 10s ease-in infinite;
+}
+
+@keyframes sky {
+  from {
+    top: 0px;
+  }
+  to {
+    top: -510px;
+  }
+}
+
+/* Sun */
+.sun {
+  width: 70px;
+  height: 70px;
+  top: 780px;
+  position: absolute;
+  --sun-color: #e85d04;
+  --sun-color-2: #f8f8f0;
+  background: radial-gradient(
+    circle,
+    var(--sun-color) 40%,
+    transparent,
+    var(--sun-color-2) 55%,
+    transparent
+  );
+  border-radius: 50px;
+
+  animation: sunrise, sun-color, sun-color-2;
+  animation-duration: 10s;
+  animation-timing-function: ease-in;
+  animation-iteration-count: infinite;
+}
+
+/* Custom CSS Property */
+@property --sun-color {
+  syntax: "<color>";
+  initial-value: transparent;
+  inherits: false;
+}
+
+@property --sun-color-2 {
+  syntax: "<color>";
+  initial-value: transparent;
+  inherits: false;
+}
+
+@keyframes sunrise {
+  from {
+    top: 600px;
+    left: 0;
+  }
+
+  to {
+    top: 10px;
+    left: 350px;
+  }
+}
+
+@keyframes sun-color {
+  55% {
+    --sun-color: transparent;
+  }
+
+  100% {
+    --sun-color: transparent;
+  }
+}
+
+@keyframes sun-color-2 {
+  100% {
+    --sun-color-2: transparent;
+  }
+}
+
+/* For Mobile */
+@media (max-width: 150px) {
+  .container {
+    padding: 0rem 1rem;
+    justify-content: center;
+  }
+}
